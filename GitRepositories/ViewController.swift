@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        SearchRepositoriesService().requestRepositories(page: 1) { results in
+            print("terminou ")
+            print(results)
+        }
     }
 
 
