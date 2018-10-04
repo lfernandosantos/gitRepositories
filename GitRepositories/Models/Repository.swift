@@ -11,6 +11,7 @@ import Foundation
 struct Repository: Codable {
     let id:             Int?
     let name:           String?
+    let fullname:       String?
     let description:    String?
     let owner:          Owner?
     let stars:          Int?
@@ -19,6 +20,7 @@ struct Repository: Codable {
     enum CodingKeys: String, CodingKey {
         case id              = "id"
         case name            = "name"
+        case fullname        = "full_name"
         case description     = "description"
         case owner           = "owner"
         case stars           = "stargazers_count"

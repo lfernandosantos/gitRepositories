@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct SearchRepositoriesService: RepositoriesBaseService {
+struct SearchRepositoriesService: BaseServiceAPI {
     internal func requestRepositories(page: Int,
-                                      completion: @escaping (SearchGitRepoResult<[Repository], String>) -> Void) {
+                                      completion: @escaping (ServicesAPIResult<[Repository], String>) -> Void) {
         let endpoint = RequestData(path: .allRepositories, method: .get, params: ["page" : page])
         
         self.request(endpoint: endpoint) { repositoriesResult in
@@ -25,9 +25,9 @@ struct SearchRepositoriesService: RepositoriesBaseService {
                         }
                     }
                 }
-                completion(SearchGitRepoResult.success(repositories))
+                completion(ServicesAPIResult.success(repositories))
             case .failure(let error):
-                completion(SearchGitRepoResult.failure(error))
+                completion(ServicesAPIResult.failure(error))
             }
         }
     }
