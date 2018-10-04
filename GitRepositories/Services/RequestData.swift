@@ -14,7 +14,7 @@ struct RequestData {
     let method:   HTTPMethod
     let params:   [String: Any]?
     
-    init(path: GitRepoAPI, method: HTTPMethod, params: [String: Any]) {
+    init(path: GitRepoAPI, method: HTTPMethod, params: [String: Any]? = nil) {
         self.path    = URL(string: path.baseURL.absoluteString + path.path)!
         self.method  = method
         self.params  = params

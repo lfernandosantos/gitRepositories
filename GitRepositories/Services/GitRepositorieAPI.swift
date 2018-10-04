@@ -15,6 +15,7 @@ protocol GitRepoAPIPath {
 
 enum GitRepoAPI {
     case allRepositories
+    case pullRequests(repository: String)
 }
 
 extension GitRepoAPI: GitRepoAPIPath {
@@ -27,6 +28,9 @@ extension GitRepoAPI: GitRepoAPIPath {
         switch self {
         case .allRepositories:
            return "search/repositories?q=language:Swift&sort=stars&page=1/"
+            break
+        case .pullRequests(let repository):
+            return "repos/\(repository)/pulls"
         }
     }
 }

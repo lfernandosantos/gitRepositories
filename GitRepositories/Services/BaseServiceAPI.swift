@@ -9,29 +9,27 @@
 import Foundation
 import Alamofire
 
-protocol RepositoriesBaseService {
-    func request(endpoint: RequestData, completion: @escaping (SearchGitRepoResult<Any, String>) -> Void)
+protocol BaseServiceAPI {
+    func request(endpoint: RequestData, completion: @escaping (ServicesAPIResult<Any, String>) -> Void)
 }
 
-extension RepositoriesBaseService {
-    func request(endpoint: RequestData, completion: @escaping (SearchGitRepoResult<Any, String>) -> Void) {
+extension BaseServiceAPI {
+    func request(endpoint: RequestData, completion: @escaping (ServicesAPIResult<Any, String>) -> Void) {
         if endpoint.method == .get {
             
-            Alamofire.request(endpoint.path,
-                              method: endpoint.method,
-                              parameters: nil,
+            Alamofire.request(endpoint.path, method: endpoint.method, parameters: nil,
                               encoding: JSONEncoding()).responseJSON { result in
+                            
                                 switch result.result {
                                 case .success(let response):
                                     if result.response?.statusCode == 200 || result.response?.statusCode == 201 {
-                                        completion(SearchGitRepoResult.success(response))
+                                        completion(ServicesAPIResult.success(response))
                                     } else {
-                                        completion(SearchGitRepoResult.failure(self.handleAPIError(response: response)))
+                                        completion(ServicesAPIResult.failure(self.handleAPIError(response: response)))
                                     }
                                 case .failure(let error):
-                                    completion(SearchGitRepoResult.failure(error.localizedDescription))
+                                    completion(ServicesAPIResult.failure(error.localizedDescription))
                             }
-                
             }
         }
     }

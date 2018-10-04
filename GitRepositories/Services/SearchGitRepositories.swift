@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum SearchGitRepoResult<T, String> {
+public enum ServicesAPIResult<T, String> {
     case success(T)
     case failure(String)
 }
