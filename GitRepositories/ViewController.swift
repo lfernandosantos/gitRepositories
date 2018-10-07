@@ -12,35 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SearchRepositoriesService().requestRepositories(page: 1) { results in
-            print("terminou ")
-            
-            switch results {
-            case .success(let reposotories):
-                print(reposotories)
-                                    
-                break
-            case .failure(let error):
-                print(error)
-                break
-            }
-            
-        }
-        
-        print("pegando pull from Alamofire")
-        PullRequestService().requestRepositories(fullname: "Alamofire/Alamofire") { results in
-            switch results {
-            case .success(let pr):
-                pr.forEach {
-                    print($0)
-                }
-                break
-            case .failure(let error):
-                print(error)
-                break
-            }
-            
-        }
+
     }
 
 
