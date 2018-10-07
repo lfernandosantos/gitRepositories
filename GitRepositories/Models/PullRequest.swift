@@ -18,7 +18,7 @@ struct PullRequest: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id             = "id"
-        case url            = "url"
+        case url            = "html_url"
         case title          = "title"
         case body           = "body"
         case createdDate    = "created_at"
