@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol RepositoryViewModelProtocol {
     func updateData(completion: @escaping(Bool) -> Void)
@@ -54,7 +55,7 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
     func getNextData() {
         
     }
-    
+
     func getListData() -> [Repository] {
         return repositoryList
     }

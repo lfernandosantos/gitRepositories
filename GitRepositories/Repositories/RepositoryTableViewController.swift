@@ -18,20 +18,15 @@ class RepositoryTableViewController: UITableViewController {
         viewModel.updateData { success in
             if success {
                 for item in self.viewModel.getListData() {
-                    print(item.name)
                     self.tableView.reloadData()
-                    
                 }
             }
         }
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return viewModel.getListData().count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoriesCell", for: indexPath)
@@ -39,26 +34,52 @@ class RepositoryTableViewController: UITableViewController {
         if let repositoryCell = cell as? RepositoryTVCell {
             repositoryCell.labelName.text = viewModel.getListData()[indexPath.row].name
             repositoryCell.labelLanguage.text = viewModel.getListData()[indexPath.row].language
+            
             //check if pass 9999+
-            repositoryCell.labelNumStar.text = viewModel.getListData()[indexPath.row].stars?.description
+            if let stars = viewModel.getListData()[indexPath.row].stars {
+                if stars > 999 {
+                    let numberString: String = String(stars)
+                    let numStart = Int(numberString.prefix(3))
+                    repositoryCell.labelNumStar.text = "\(numStart!)+"
+                } else {
+                    repositoryCell.labelNumStar.text = stars.description
+                }
+            }
+
             //check if pass 9999+
-            repositoryCell.labelNumForks.text = viewModel.getListData()[indexPath.row].forks?.description
+            if let forks = viewModel.getListData()[indexPath.row].forks {
+                
+                if forks > 999 {
+                    let numberString: String = String(forks)
+                    let numForks = Int(numberString.prefix(3))!
+                    repositoryCell.labelNumForks.text = "\(numForks)+"
+                } else {
+                    repositoryCell.labelNumForks.text = forks.description
+                }
+            }
             return repositoryCell
         }
-
-        // Configure the cell...
-
         return cell
     }
- 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemSelect = viewModel.getListData()[indexPath.row]
+        if let fullRepository = itemSelect.fullname {
+            performSegue(withIdentifier: "pullRequests", sender: fullRepository)
+        }
     }
-    */
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pullRequests" {
+            if let destinationTVC = segue.destination as? PullRequestTableViewController {
+                if let repository = sender as? String {
+                    destinationTVC.pullVM = PullRequestViewModel(repository: repository)
+                    self.present(destinationTVC, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+
 
     /*
     // Override to support editing the table view.
