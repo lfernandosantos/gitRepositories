@@ -1,0 +1,4 @@
+language: swift
+xcode_project: GitRepositories.xcodeproj # path to your xcodeproj folder
+xcode_scheme: GitRepositories
+xcode_destination: platform=iOS Simulator,OS=11,name=iPhone X
