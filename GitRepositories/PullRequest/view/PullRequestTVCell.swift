@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class PullRequestTVCell: UITableViewCell {
-    
+
+    @IBOutlet var imageAuthor: UIImageView!
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelNome: UILabel!
     @IBOutlet var labelData: UILabel!

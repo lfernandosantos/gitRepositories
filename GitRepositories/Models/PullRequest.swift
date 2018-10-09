@@ -33,4 +33,9 @@ struct PullRequest: Codable {
         }
         return nil
     }
+
+    static func from(coreData: PullRequestEntity) -> PullRequest {
+        let model = PullRequest(id: Int(coreData.id), url: coreData.url, title: coreData.title, body: coreData.body, createdDate: coreData.createdDate, user: Owner.from(coreData: coreData.user))
+        return model
+    }
 }

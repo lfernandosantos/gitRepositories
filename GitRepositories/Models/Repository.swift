@@ -38,4 +38,9 @@ struct Repository: Codable {
         }
         return nil
     }
+
+    static func from(coreData: RepositoryEntity) -> Repository {
+        let model = Repository(id: Int(coreData.id), name: coreData.name, fullname: coreData.fullname, description: coreData.description, language: coreData.language, owner: Owner.from(coreData: coreData.user), stars: Int(coreData.stars), forks: Int(coreData.forks))
+        return model
+    }
 }

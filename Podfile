@@ -7,6 +7,7 @@ target 'GitRepositories' do
 
   # Pods for GitRepositories
   pod 'Alamofire', '~> 4.7'
+  pod 'Kingfisher', '~> 4.0'
 
   target 'GitRepositoriesTests' do
     inherit! :search_paths

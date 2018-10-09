@@ -76,7 +76,6 @@ class RepositoryTableViewController: UITableViewController {
             if let destinationTVC = segue.destination as? PullRequestTableViewController {
                 if let repository = sender as? String {
                     destinationTVC.pullVM = PullRequestViewModel(repository: repository)
-                    self.present(destinationTVC, animated: true, completion: nil)
                 }
             }
         }
@@ -86,10 +85,8 @@ class RepositoryTableViewController: UITableViewController {
         let actual = scrollView.contentOffset.y
         let height = scrollView.contentSize.height - self.tableView.frame.size.height
         if actual >= height {
-            print("desce")
             loadTable()
         }
-
     }
 
 }
