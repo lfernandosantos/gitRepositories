@@ -26,6 +26,13 @@
 		BEA4E7F6216A612000A6DF42 /* PullRequestTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4E7E8216A612000A6DF42 /* PullRequestTVCell.swift */; };
 		BEA4E7F8216A618700A6DF42 /* PullRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4E7F7216A618700A6DF42 /* PullRequestTableViewController.swift */; };
 		BEA4E7FA216A622A00A6DF42 /* PullRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4E7F9216A622A00A6DF42 /* PullRequestViewModel.swift */; };
+		BED3F7B1216C467E00F5D90D /* RepositoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7AB216C467E00F5D90D /* RepositoryEntity+CoreDataClass.swift */; };
+		BED3F7B2216C467E00F5D90D /* RepositoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7AC216C467E00F5D90D /* RepositoryEntity+CoreDataProperties.swift */; };
+		BED3F7B3216C467E00F5D90D /* PullRequestEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7AD216C467E00F5D90D /* PullRequestEntity+CoreDataProperties.swift */; };
+		BED3F7B4216C467E00F5D90D /* OwnerEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7AE216C467E00F5D90D /* OwnerEntity+CoreDataClass.swift */; };
+		BED3F7B5216C467E00F5D90D /* OwnerEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7AF216C467E00F5D90D /* OwnerEntity+CoreDataProperties.swift */; };
+		BED3F7B6216C467E00F5D90D /* PullRequestEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7B0216C467E00F5D90D /* PullRequestEntity+CoreDataClass.swift */; };
+		BED3F7B8216C47CC00F5D90D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3F7B7216C47CC00F5D90D /* PersistenceManager.swift */; };
 		ED39D5952162F24B0042E0E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39D5942162F24B0042E0E3 /* AppDelegate.swift */; };
 		ED39D5972162F24B0042E0E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39D5962162F24B0042E0E3 /* ViewController.swift */; };
 		ED39D59A2162F24B0042E0E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED39D5982162F24B0042E0E3 /* Main.storyboard */; };
@@ -76,6 +83,13 @@
 		BEA4E7E8216A612000A6DF42 /* PullRequestTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestTVCell.swift; sourceTree = "<group>"; };
 		BEA4E7F7216A618700A6DF42 /* PullRequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewController.swift; sourceTree = "<group>"; };
 		BEA4E7F9216A622A00A6DF42 /* PullRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewModel.swift; sourceTree = "<group>"; };
+		BED3F7AB216C467E00F5D90D /* RepositoryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BED3F7AC216C467E00F5D90D /* RepositoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED3F7AD216C467E00F5D90D /* PullRequestEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PullRequestEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED3F7AE216C467E00F5D90D /* OwnerEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OwnerEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BED3F7AF216C467E00F5D90D /* OwnerEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OwnerEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED3F7B0216C467E00F5D90D /* PullRequestEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PullRequestEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BED3F7B7216C47CC00F5D90D /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		EB66041F007DEE7F2B28D640 /* Pods-GitRepositoriesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitRepositoriesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitRepositoriesTests/Pods-GitRepositoriesTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED39D5912162F24B0042E0E3 /* GitRepositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitRepositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED39D5942162F24B0042E0E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +173,7 @@
 		BEA4E7D8216A612000A6DF42 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BED3F7A9216C462000F5D90D /* DataBase */,
 				BEA4E7D9216A612000A6DF42 /* BaseServiceAPI.swift */,
 				BEA4E7DA216A612000A6DF42 /* Repository */,
 				BEA4E7DC216A612000A6DF42 /* PullRequest */,
@@ -212,6 +227,28 @@
 				BEA4E7E8216A612000A6DF42 /* PullRequestTVCell.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		BED3F7A9216C462000F5D90D /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				BED3F7AA216C463B00F5D90D /* Entities */,
+				BED3F7B7216C47CC00F5D90D /* PersistenceManager.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		BED3F7AA216C463B00F5D90D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BED3F7AE216C467E00F5D90D /* OwnerEntity+CoreDataClass.swift */,
+				BED3F7AF216C467E00F5D90D /* OwnerEntity+CoreDataProperties.swift */,
+				BED3F7B0216C467E00F5D90D /* PullRequestEntity+CoreDataClass.swift */,
+				BED3F7AD216C467E00F5D90D /* PullRequestEntity+CoreDataProperties.swift */,
+				BED3F7AB216C467E00F5D90D /* RepositoryEntity+CoreDataClass.swift */,
+				BED3F7AC216C467E00F5D90D /* RepositoryEntity+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		ED39D5882162F24B0042E0E3 = {
@@ -411,10 +448,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitRepositories/Pods-GitRepositories-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -484,8 +523,13 @@
 			files = (
 				BEA4E7F8216A618700A6DF42 /* PullRequestTableViewController.swift in Sources */,
 				ED39D59D2162F24B0042E0E3 /* GitRepositories.xcdatamodeld in Sources */,
+				BED3F7B5216C467E00F5D90D /* OwnerEntity+CoreDataProperties.swift in Sources */,
 				BEA4E7F5216A612000A6DF42 /* Owner.swift in Sources */,
+				BED3F7B2216C467E00F5D90D /* RepositoryEntity+CoreDataProperties.swift in Sources */,
+				BED3F7B8216C47CC00F5D90D /* PersistenceManager.swift in Sources */,
+				BED3F7B6216C467E00F5D90D /* PullRequestEntity+CoreDataClass.swift in Sources */,
 				BEA4E7EF216A612000A6DF42 /* RequestData.swift in Sources */,
+				BED3F7B4216C467E00F5D90D /* OwnerEntity+CoreDataClass.swift in Sources */,
 				BEA4E7F4216A612000A6DF42 /* Repository.swift in Sources */,
 				BEA4E7F3216A612000A6DF42 /* PullRequest.swift in Sources */,
 				BEA4E7ED216A612000A6DF42 /* SearchRepositoriesService.swift in Sources */,
@@ -494,10 +538,12 @@
 				BEA4E7F1216A612000A6DF42 /* GitRepositorieAPI.swift in Sources */,
 				ED39D5972162F24B0042E0E3 /* ViewController.swift in Sources */,
 				BEA4E7FA216A622A00A6DF42 /* PullRequestViewModel.swift in Sources */,
+				BED3F7B3216C467E00F5D90D /* PullRequestEntity+CoreDataProperties.swift in Sources */,
 				ED39D5952162F24B0042E0E3 /* AppDelegate.swift in Sources */,
 				BEA4E7EB216A612000A6DF42 /* RepositoryTableViewController.swift in Sources */,
 				BEA4E7F2216A612000A6DF42 /* ResponseModel.swift in Sources */,
 				BEA4E7F0216A612000A6DF42 /* SearchGitRepositories.swift in Sources */,
+				BED3F7B1216C467E00F5D90D /* RepositoryEntity+CoreDataClass.swift in Sources */,
 				BEA4E7EA216A612000A6DF42 /* RepositoriesViewModel.swift in Sources */,
 				BEA4E7E9216A612000A6DF42 /* RepositoryTVCell.swift in Sources */,
 				BEA4E7F6216A612000A6DF42 /* PullRequestTVCell.swift in Sources */,

@@ -40,4 +40,44 @@ extension PullRequestEntity {
         
         return entity
     }
+
+    func getFromCoreData() -> PullRequestEntity? {
+        let persistence = PersistenceManager.shared
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PullRequestEntity")
+        fetchRequest.predicate = NSPredicate(format: "id=%@", "\(id)")
+
+        do {
+            if let results = try? persistence.context.fetch(fetchRequest) as? [PullRequestEntity] {
+                if results?.count ?? 0 > 0 {
+                    return results?[0] ?? nil
+                }
+            }
+        }
+        return nil
+    }
+
+    func savedOnCoreData() -> Bool {
+        if getFromCoreData() != nil {
+            return true
+        }
+        return false
+    }
+
+    static func getAllFromCoreData() -> [PullRequestEntity]? {
+        let persistence = PersistenceManager.shared
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PullRequestEntity")
+
+        do {
+            if let results = try? persistence.context.fetch(fetchRequest) as? [PullRequestEntity] {
+                return results
+            }
+        }
+        return nil
+    }
+}
+
+extension PullRequest {
+    var entityCoreData: PullRequestEntity { get{
+        return PullRequestEntity.from(pull: self)
+        }}
 }

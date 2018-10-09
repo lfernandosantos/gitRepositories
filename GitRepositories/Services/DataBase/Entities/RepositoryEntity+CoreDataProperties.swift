@@ -51,12 +51,9 @@ extension RepositoryEntity {
         do {
             if let results = try? persistence.context.fetch(fetchRequest) as? [RepositoryEntity] {
                 if results?.count ?? 0 > 0 {
-                    print(results?.count)
                     return results?[0] ?? nil
                 }
             }
-        } catch {
-            print(error)
         }
         return nil
     }
@@ -70,15 +67,12 @@ extension RepositoryEntity {
 
     static func getAllFromCoreData() -> [RepositoryEntity]? {
         let persistence = PersistenceManager.shared
-        let entityName = "RepositoryEntity"
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RepositoryEntity")
 
         do {
             if let results = try? persistence.context.fetch(fetchRequest) as? [RepositoryEntity] {
                 return results
             }
-        } catch {
-            print(error)
         }
         return nil
     }

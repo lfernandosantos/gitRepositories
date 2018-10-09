@@ -40,9 +40,7 @@ struct Repository: Codable {
     }
 
     static func from(coreData: RepositoryEntity) -> Repository {
-        let persistence = PersistenceManager.shared
-        let model = Repository(id: Int(coreData.id ?? 0), name: coreData.name, fullname: coreData.fullname, description: coreData.description, language: coreData.language, owner: Owner.from(coreData: coreData.user), stars: Int(coreData.stars ?? 0), forks: Int(coreData.forks ?? 0))
-
+        let model = Repository(id: Int(coreData.id), name: coreData.name, fullname: coreData.fullname, description: coreData.description, language: coreData.language, owner: Owner.from(coreData: coreData.user), stars: Int(coreData.stars), forks: Int(coreData.forks))
         return model
     }
 }
