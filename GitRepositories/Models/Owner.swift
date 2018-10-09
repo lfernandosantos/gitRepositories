@@ -29,4 +29,10 @@ struct Owner: Codable {
         }
         return nil
     }
+
+    static func from(coreData: OwnerEntity?) -> Owner {
+        let model = Owner(id: Int(coreData?.id ?? 0), login: coreData?.login, avatar: coreData?.avatar, urlProfile: coreData?.urlProfile)
+
+        return model
+    }
 }
