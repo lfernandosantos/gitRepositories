@@ -27,9 +27,10 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
         readTotalPages()
         SearchRepositoriesService().requestRepositories(page: currentPage) { results in
             switch results {
-            case .success(let reposotories):
+            case .success(let repositories):
+                self.saveRepositories(repositories)
                 self.nextPage()
-                for item in reposotories {
+                for item in repositories {
                     if self.repositoryList.contains(where: { inList in
                         return inList.id == item.id
                     }) == false {
@@ -40,15 +41,15 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
                 break
             case .failure(let error):
                 print(error)
-//                for item in reposotories {
-//                    if self.repositoryList.contains(where: { inList in
-//                        return inList.id == item.id
-//                    }) == false {
-//                        self.repositoryList.append(item)
-//                    }
-//                    completion()
-//                }
-                //get from CoreData
+                for item in self.getRepositoriesFromCoreData() {
+                    if self.repositoryList.contains(where: { inList in
+                        return inList.id == item.id
+                    }) == false {
+                        self.repositoryList.append(item)
+                    }
+                    completion(false)
+                }
+
                 self.errorData = "Check your conection!"
                 completion(false)
                 break
@@ -74,11 +75,7 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
     }
 
     private func readTotalPages() {
-//        var userDefaults = UserDefaults.standard
-//        totalPages = userDefaults.integer(forKey: "total.pages.notification") ?? 1
-
-
-        NotificationCenter.default.addObserver(self,
+       NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.addTotalPages(_:)),
                                                name: Notification.Name.init(rawValue: "total.pages.notification"),
                                                object: nil)
@@ -95,4 +92,22 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
             }
         }
     }
+
+    func saveRepositories(_ list: [Repository]) {
+        let persistence = PersistenceManager.shared
+        list.forEach {
+            if !$0.entityCoreData.savedOnCoreData() {
+                persistence.saveAnyObject($0.entityCoreData)
+            }
+        }
+    }
+
+    func getRepositoriesFromCoreData() -> [Repository] {
+        var coreDataRepositories: [Repository] = []
+        RepositoryEntity.getAllFromCoreData()?.forEach {
+            coreDataRepositories.append(Repository.from(coreData: $0))
+        }
+        return coreDataRepositories
+    }
+
 }
