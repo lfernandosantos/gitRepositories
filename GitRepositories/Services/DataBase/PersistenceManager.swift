@@ -56,10 +56,8 @@ final class PersistenceManager {
     }
 
     func saveAnyObject<T: NSManagedObject>(_ object: T) {
-
         var obj = T(context: context)
         obj = object
-        print(obj)
         saveContext()
     }
 }

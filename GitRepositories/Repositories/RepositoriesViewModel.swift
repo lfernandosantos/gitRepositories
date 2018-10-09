@@ -61,7 +61,6 @@ class RepositoryViewModel: RepositoryViewModelProtocol {
         if let totalP = totalPages {
             if currentPage < totalP {
                 currentPage += 1
-                print(currentPage)
             }
         }
     }
